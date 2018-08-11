@@ -19,17 +19,25 @@ if (!is_null($events['events'])) {
     // Reply only when message sent is in 'text' format
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
       
-         $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+        /* $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
          $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
          $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$com");
-         $response = $bot->pushMessage($idPush, $textMessageBuilder);
+         $response = $bot->pushMessage($idPush, $textMessageBuilder); */
       
       if($com == "เปิดไฟ"){      
+         $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+         $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("1");
+         $response = $bot->pushMessage($idPush, $textMessageBuilder);
          $Topic = "NodeMCU1";
          $lineMsg = "1";
          getMqttfromlineMsg($Topic,$lineMsg);
       }      
-        else if($com == "ปิดไฟ")         
+        else if($com == "ปิดไฟ")    
+           $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+         $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("0");
+         $response = $bot->pushMessage($idPush, $textMessageBuilder);
          $Topic = "NodeMCU1";
          $lineMsg = "0";
          getMqttfromlineMsg($Topic,$lineMsg);
