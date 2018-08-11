@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
       /*   $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
          $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
          $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$com");
-         $response = $bot->pushMessage($idPush, $textMessageBuilder); /*
+         $response = $bot->pushMessage($idPush, $textMessageBuilder); */
          
          $Topic = "NodeMCU1";
          $lineMsg = "$com";
