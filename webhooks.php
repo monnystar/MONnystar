@@ -27,12 +27,12 @@ if (!is_null($events['events'])) {
          $Topic = "NodeMCU1";
          $lineMsg = "$com";
          getMqttfromlineMsg($Topic,$lineMsg);
-    }else {
-     $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-      $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-      $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('หุ่นยนต์ไม่สามารถอ่านสติกเกอร์ได้');
-      $response = $bot->pushMessage($idPush, $textMessageBuilder);
-    }
+    } //else {
+      //$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+      // $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+      //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('หุ่นยนต์ไม่สามารถอ่านสติกเกอร์ได้');
+      //$response = $bot->pushMessage($idPush, $textMessageBuilder);
+ //   }
   }
 } 
 
