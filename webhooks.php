@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
          $lineMsg = "1";
          getMqttfromlineMsg($Topic,$lineMsg);
       }      
-        else if($com == "ปิดไฟ")    
+        else if($com == "BB")    
            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
          $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
          $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("0");
