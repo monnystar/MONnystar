@@ -6,40 +6,24 @@ $access_token = 'Q4Ivpqy+fEijDfwAnIDvN6PprOy69lxLVpnTia1q8Hhwgfz8csZFSVqiQvccWdZ
 $channelSecret = '6c6ca6e38c984ba4b649dc6cf0a3c5fe';
 $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 
-// Get POST body content
 $content = file_get_contents('php://input');
-// Parse JSON
 $events = json_decode($content, true);
 
-//$com = substr($content, 227, -5);
   $com = substr($content, 274, -5);
 if (!is_null($events['events'])) {
-  // Loop through each event
   foreach ($events['events'] as $event) {
-    // Reply only when message sent is in 'text' format
-    if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-      
-      /*   $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-         $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$com");
-         $response = $bot->pushMessage($idPush, $textMessageBuilder); */
-         
+    if ($event['type'] == 'message' && $event['message']['type'] == 'text') {   
          $Topic = "NodeMCU1";
          $lineMsg = "$com";
          getMqttfromlineMsg($Topic,$lineMsg);
-    } //else {
-      //$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-      // $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-      //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('หุ่นยนต์ไม่สามารถอ่านสติกเกอร์ได้');
-      //$response = $bot->pushMessage($idPush, $textMessageBuilder);
- //   }
+    } 
   }
 } 
 
 function pubMqtt($topic,$msg){
-   $APPID= "samickrock/"; //enter your appid
-   $KEY = "MC6kLl4SYiDW2qd"; //enter your key
-   $SECRET = "ASn4eO61s65RPZ3ujHSHNulOz"; //enter your secret
+   $APPID= "samickrock/";
+   $KEY = "MC6kLl4SYiDW2qd";
+   $SECRET = "ASn4eO61s65RPZ3ujHSHNulOz"; 
    $Topic = "$topic"; 
    put("https://api.netpie.io/microgear/".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
    
@@ -71,9 +55,5 @@ function put($url,$tmsg)
      curl_close($ch);
     echo $response . "\r\n";
     return $response;
-}
-    // $Topic = "NodeMCU1";
-    //  $lineMsg = "$com";
-    //  getMqttfromlineMsg($Topic,$lineMsg);
- 
+} 
  ?>
