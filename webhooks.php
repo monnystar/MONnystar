@@ -14,7 +14,7 @@ $linemessage = array('เปิดไฟ','ปิดไฟ');
 if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {   
-      if($com == $linemessage){
+      if($com == $linemessage['เปิดไฟ']){
          $Topic = "NodeMCU1";
          $lineMsg = "$com";
          getMqttfromlineMsg($Topic,$lineMsg);
