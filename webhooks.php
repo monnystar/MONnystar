@@ -55,8 +55,8 @@ function put($url,$tmsg)
     curl_setopt($ch, CURLOPT_POSTFIELDS, $tmsg);
     curl_setopt($ch, CURLOPT_USERPWD, "MC6kLl4SYiDW2qd:ASn4eO61s65RPZ3ujHSHNulOz");     
     $response = curl_exec($ch);
-     curl_close($ch);
+    curl_close($ch);
     echo $response . "\r\n";
     return $response;
-} 
+}  echo $linemessage;
  ?>
