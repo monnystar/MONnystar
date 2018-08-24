@@ -8,9 +8,9 @@ $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
-$linemessage = "เปิดไฟ","ปิดไฟ";
+$linemessage[] = "เปิดไฟ","ปิดไฟ";
+$com = substr($content, 274, -5);
 
-  $com = substr($content, 274, -5);
 if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {   
@@ -58,5 +58,5 @@ function put($url,$tmsg)
     curl_close($ch);
     echo $response . "\r\n";
     return $response;
-}  echo $linemessage;
+}  
  ?>
