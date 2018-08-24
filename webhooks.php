@@ -8,7 +8,7 @@ $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
-$linemessage = "เปิดไฟ";
+$linemessage = "เปิดไฟ","ปิดไฟ";
 
   $com = substr($content, 274, -5);
 if (!is_null($events['events'])) {
