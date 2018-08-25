@@ -16,19 +16,16 @@ $i = 0;
 if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
-       $Topic = "NodeMCU1";
-         $lineMsg = "$textmessagerobot";
-         getMqttfromlineMsg($Topic,$lineMsg);
       for($i = 0; $i <= 3; $i++){
       if($textmessagerobot == $linemessage[$i]){
          $Topic = "NodeMCU1";
          $lineMsg = "$textmessagerobot";
          getMqttfromlineMsg($Topic,$lineMsg);
-      }
      }
-    } 
+    }
+   } 
   }
-} 
+ } 
 
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
