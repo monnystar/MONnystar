@@ -8,17 +8,18 @@ $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
-$linemessage = array('เปิดไฟ','ปิดไฟ');
+$linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟปิดไฟ');
 $com = substr($content, 274, -5);
+$textmessagerobot = str_replace(" ","\0",$com);
 $i = 0;
 
 if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
       for($i = 0; $i <= 2; $i++){
-      if($com == $linemessage[$i]){
+      if($textmessagerobot == $linemessage[$i]){
          $Topic = "NodeMCU1";
-         $lineMsg = "$com";
+         $lineMsg = "$textmessagerobot";
          getMqttfromlineMsg($Topic,$lineMsg);
       }
      }
