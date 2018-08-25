@@ -10,7 +10,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟปิดไฟ');
 $com = substr($content, 274, -5);
-$textmessagerobot = str_replace(" ","\0",$com);
+$textmessagerobot = str_replace(" ","",$com);
 $i = 0;
 
 if (!is_null($events['events'])) {
