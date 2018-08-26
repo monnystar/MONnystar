@@ -10,8 +10,8 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -5);
 
-$tesxt = array(" ","ไป","ห้องหนึ่ง","ห้องสอง","ห้องสาม","ห้องสี่","ห้องห้า","ห้องหก");
-$tesxt1 = array("","-","1","2","3","4","5","6");
+$tesxt = array(" ","ไป","ห้อง","หนึ่ง","สอง","สาม","สี่","ห้า","หก,""เจ็ด","แปด","เก้า","ศูนย์");
+$tesxt1 = array("","-","","1","2","3","4","5","6","7","8","9","0");
 list($robotorderinput, $missionanalysis) = explode("เอกสาร", $com);
 for($i = 0; $i <= 7; $i++){
 	$missionanalysis = str_replace($tesxt[$i],$tesxt1[$i],$missionanalysis);
