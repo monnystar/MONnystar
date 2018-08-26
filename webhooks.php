@@ -20,6 +20,8 @@ for($i = 0; $i <= 7; $i++){
 if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
+	    
+	if($robotorderinput == "ส่ง"){
       	$Topic = "NodeMCU1";
          $lineMsg = "$missionanalysis";
          getMqttfromlineMsg($Topic,$lineMsg);
