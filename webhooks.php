@@ -8,21 +8,23 @@ $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
-$linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟปิดไฟ');
 $com = substr($content, 274, -5);
-$textmessagerobot = str_replace(" ","",$com);
-$i = 0;
+
+$tesxt = array(" ","ไป","ห้องหนึ่ง","ห้องสอง","ห้องสาม","ห้องสี่","ห้องห้า","ห้องหก");
+$tesxt1 = array("","-","1","2","3","4","5","6");
+list($robotorderinput, $missionanalysis) = explode("เอกสาร", $com);
+for($i = 0; $i <= 7; $i++){
+	$missionanalysis = str_replace($tesxt[$i],$tesxt1[$i],$missionanalysis);
+	}
 
 if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
-      for($i = 0; $i <= 3; $i++){
-      if($textmessagerobot == $linemessage[$i]){
+      if($robotorderinput == "ส่ง"){
          $Topic = "NodeMCU1";
-         $lineMsg = "$textmessagerobot";
+         $lineMsg = "$robotorderinput";
          getMqttfromlineMsg($Topic,$lineMsg);
      }
-    }
    } 
   }
  } 
