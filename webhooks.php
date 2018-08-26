@@ -13,7 +13,7 @@ $com = substr($content, 274, -5);
 $tesxt = array(" ","ไป","ห้อง","หนึ่ง","สอง","สาม","สี่","ห้า","หก,""เจ็ด","แปด","เก้า","ศูนย์");
 $tesxt1 = array("","-","","1","2","3","4","5","6","7","8","9","0");
 list($robotorderinput, $missionanalysis) = explode("เอกสาร", $com);
-for($i = 0; $i <= 7; $i++){
+for($i = 0; $i <= 13; $i++){
 	$missionanalysis = str_replace($tesxt[$i],$tesxt1[$i],$missionanalysis);
 	}
 
