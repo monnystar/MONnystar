@@ -22,13 +22,7 @@ if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
       if($robotorderinput == "ส่ง"){
-	if ($missionanalysis == 1-|| $missionanalysis == 2-|| $missionanalysis == 3-
-		 || $missionanalysis == 4-|| $missionanalysis == 5- || $missionanalysis == 6-){
-	 $Topic = "NodeMCU1";
-         $lineMsg = "กรุณารบุหมายเลขห้องปลายทาง";
-         getMqttfromlineMsg($Topic,$lineMsg);	
-	}
-	 if($missionanalysis != "NULL"){
+	if($missionanalysis != "NULL"){
          $Topic = "NodeMCU1";
          $lineMsg = "$missionanalysis";
          getMqttfromlineMsg($Topic,$lineMsg);
