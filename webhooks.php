@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
       if($robotorderinput == "ส่ง"){
          $Topic = "NodeMCU1";
-         $lineMsg = "$robotorderinput";
+         $lineMsg = "$missionanalysis";
          getMqttfromlineMsg($Topic,$lineMsg);
      }
    } 
