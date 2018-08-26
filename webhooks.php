@@ -10,6 +10,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -5);
 
+$missionanalysis = "NULL";
 $tesxt = array(" ","ไป","ห้องหนึ่ง","ห้องสอง","ห้องสาม","ห้องสี่","ห้องห้า","ห้องหก");
 $tesxt1 = array("","-","1","2","3","4","5","6");
 list($robotorderinput, $missionanalysis) = explode("เอกสาร", $com);
@@ -21,13 +22,25 @@ if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
       if($robotorderinput == "ส่ง"){
+	if ($missionanalysis == 1-|| $missionanalysis == 2-|| $missionanalysis == 3-
+		 || $missionanalysis == 4-|| $missionanalysis == 5- || $missionanalysis == 6-){
+	 $Topic = "NodeMCU1";
+         $lineMsg = "กรุณารบุหมายเลขห้องปลายทาง";
+         getMqttfromlineMsg($Topic,$lineMsg);	
+	}
+	 if($missionanalysis != "NULL"){
          $Topic = "NodeMCU1";
          $lineMsg = "$missionanalysis";
          getMqttfromlineMsg($Topic,$lineMsg);
-     }
-   } 
+	}if else($missionanalysis == "NULL"){
+	 $Topic = "NodeMCU1";
+         $lineMsg = "กรุณารบุหมายเลขห้อง";
+         getMqttfromlineMsg($Topic,$lineMsg);	  
+	}
+      }
+    }
   }
- } 
+} 
 
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
