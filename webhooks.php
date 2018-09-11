@@ -22,7 +22,7 @@ $com = substr($content, 274, -5);
  	 foreach ($events['events'] as $event) {
    	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 		 $Topic = "NodeMCU1";
-       		 $lineMsg = "com";
+       		 $lineMsg = "$com";
          	getMqttfromlineMsg($Topic,$lineMsg);
 	   
      //    if($robotorderinput == "ส่ง"){
