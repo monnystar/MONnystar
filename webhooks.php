@@ -9,19 +9,17 @@ $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -5);
-
-
+$textmessagerobot = str_replace(" ","",$com);
 
 if (!is_null($events['events'])) {
- 	foreach ($events['events'] as $event) {
-   	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
-	 $Topic = "NodeMCU1";
-       	 $lineMsg = "$com";
+  foreach ($events['events'] as $event) {
+    if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
+         $Topic = "NodeMCU1";
+         $lineMsg = "$textmessagerobot";
          getMqttfromlineMsg($Topic,$lineMsg);
-	   
+     }
     }
-  }
-} 
+   } 
 
 function pubMqtt($topic,$msg){
    $APPID= "samickrock";
