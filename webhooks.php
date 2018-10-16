@@ -24,9 +24,9 @@ foreach ($ar_new as $num){
 if (!is_null($events['events'])) {
  	foreach ($events['events'] as $event) {
    	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
-		 $Topic = "NodeMCU1";
-       		 $lineMsg = extract_int($ar_new);
-         	getMqttfromlineMsg($Topic,$lineMsg);
+	 $Topic = "NodeMCU1";
+       	 $lineMsg = extract_int($ar_new);
+         getMqttfromlineMsg($Topic,$lineMsg);
 	   
     }
   }
