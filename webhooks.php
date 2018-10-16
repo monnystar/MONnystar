@@ -17,16 +17,17 @@ $ar_word2 = array("");
 $ar_new = str_replace($ar_word1,$ar_word2,$com);
 
 foreach ($ar_new as $num){
+		if (!is_null($events['events'])) {
+		 foreach ($events['events'] as $event) {
+		 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
+			 $Topic = "NodeMCU1";
+			 $lineMsg = "$num";
+			getMqttfromlineMsg($Topic,$lineMsg);	   
+	    }
+	  }
+	} 
 }
-	if (!is_null($events['events'])) {
- 	 foreach ($events['events'] as $event) {
-   	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
-		 $Topic = "NodeMCU1";
-       		 $lineMsg = "$num";
-         	getMqttfromlineMsg($Topic,$lineMsg);	   
-    }
-  }
-} 
+	
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
    $KEY = "MC6kLl4SYiDW2qd";
