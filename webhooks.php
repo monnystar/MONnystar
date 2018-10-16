@@ -11,29 +11,22 @@ $events = json_decode($content, true);
 $com = substr($content, 274, -5);
 $textmessagerobot = str_replace(" ","",$com);
 $textmessagerobot = str_replace("0","",$textmessagerobot);
-//$tesxt = array(" ");
-//$tesxt1 = array("");
-//list($robotorderinput, $missionanalysis) = explode("เอกสาร", $com);
-
-//for($i = 0; $i <= 13; $i++){
-//	$missionanalysis = str_replace($tesxt[$i],$tesxt1[$i],$missionanalysis);
-//	}
 
 	if (!is_null($events['events'])) {
  	 foreach ($events['events'] as $event) {
    	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 		 $Topic = "NodeMCU1";
-       		 $lineMsg = "$textmessagerobot";
+       		 $lineMsg = extract_int($textmessagerobot);
          	getMqttfromlineMsg($Topic,$lineMsg);
 	   
-     //    if($robotorderinput == "ส่ง"){
-     //    $Topic = "NodeMCU1";
-     //    $lineMsg = "$missionanalysis";
-     //    getMqttfromlineMsg($Topic,$lineMsg);
-     // }
     }
   }
 } 
+
+function extract_int($str){
+     preg_match('/[^0-9]*([0-9]+)[^0-9]*/', $str, $regs);
+     return (intval($regs[1]));
+}
 
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
