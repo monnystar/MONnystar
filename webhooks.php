@@ -16,7 +16,7 @@ if (!is_null($events['events'])) {
  	foreach ($events['events'] as $event) {
    	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 	 $Topic = "NodeMCU1";
-       	 $lineMsg = extract_int($com);
+       	 $lineMsg = "$com";
          getMqttfromlineMsg($Topic,$lineMsg);
 	   
     }
