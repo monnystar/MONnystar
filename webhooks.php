@@ -16,7 +16,7 @@ $ar_word1 = array(" ","0","!","@","#","$","%","^","&","(",")","_","+","0","-","=
 "ผ","ป","แ","อ","ิ","ื","ท","ม","ใ","ฝ","๐","ฎ","ฑ","ธ","ํ","๊","ณ","ฯ","ญ","ฐ","ฤ","ฆ","ฏ","โ","ฌ","็","๋","ษ","ศ","ซ",".",
 "ฉ","ฮ","ฺ","์","?","ฒ","ฬ","ฦ","ๅ","-","ภ","ถ","ุ","ึ","ค","ต","จ","ข","ช","+","๑","๒","๓","๔","ู","฿","๕","๖","๗","๘","๙","๐");
 $ar_word2 = array("");
-$ar_new = str_replace($arw1,$arw2,$com);
+$ar_new = str_replace($ar_word1,$ar_word2,$com);
 
 foreach ($ar_new as $num){
 }
@@ -25,7 +25,7 @@ if (!is_null($events['events'])) {
  	foreach ($events['events'] as $event) {
    	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 	 $Topic = "NodeMCU1";
-       	 $lineMsg = extract_int($com);
+       	 $lineMsg = extract_int($num);
          getMqttfromlineMsg($Topic,$lineMsg);
 	   
     }
