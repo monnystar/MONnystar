@@ -9,24 +9,28 @@ $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -5);
-$textmessagerobot = str_replace(" ","",$com);
-$textmessagerobot = str_replace("0","",$textmessagerobot);
 
-	if (!is_null($events['events'])) {
- 	 foreach ($events['events'] as $event) {
+$ar_word1 = array(" ","0","!","@","#","$","%","^","&","(",")","_","+","0","-","=","Q","W","E","R","T","Y","U","I","O","P","{","}","A","S","D","F","G","H","J","K","L",":","'",
+"Z","X","C","V","B","N","M","<",">","?","q","w","e","r","t","y","u","i","o","p","[","]","a","s","d","f","g","h","j","k","l",";",
+"z","x","c","v","b","n","m",",",".","/","|","ๆ","ไ","ำ","พ","ะ","ั","ี","ร","น","ย","บ","ล","ฟ","ห","ก","ด","เ","้","่","า","ส","ว","ง",
+"ผ","ป","แ","อ","ิ","ื","ท","ม","ใ","ฝ","๐","ฎ","ฑ","ธ","ํ","๊","ณ","ฯ","ญ","ฐ","ฤ","ฆ","ฏ","โ","ฌ","็","๋","ษ","ศ","ซ",".",
+"ฉ","ฮ","ฺ","์","?","ฒ","ฬ","ฦ","ๅ","-","ภ","ถ","ุ","ึ","ค","ต","จ","ข","ช","+","๑","๒","๓","๔","ู","฿","๕","๖","๗","๘","๙","๐");
+$ar_word2 = array("");
+$ar_new = str_replace($arw1,$arw2,$at);
+
+foreach ($ar_new as $num){
+}
+
+if (!is_null($events['events'])) {
+ 	foreach ($events['events'] as $event) {
    	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 		 $Topic = "NodeMCU1";
-       		 $lineMsg = extract_int($textmessagerobot);
+       		 $lineMsg = extract_int($num);
          	getMqttfromlineMsg($Topic,$lineMsg);
 	   
     }
   }
 } 
-
-function extract_int($str){
-     preg_match('/[^0-9]*([0-9]+)[^0-9]*/', $str, $regs);
-     return (intval($regs[1]));
-}
 
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
