@@ -16,7 +16,7 @@ $ar_new = str_replace($ar_word1,$ar_word2,$com);
 		 foreach ($events['events'] as $event) {
 		 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 			 $Topic = "NodeMCU1";
-			 $lineMsg = "$num";
+			 $lineMsg = "$com";
 			getMqttfromlineMsg($Topic,$lineMsg);	   
 	    }
 	  }
