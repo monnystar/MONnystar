@@ -1,28 +1,37 @@
 <?php
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-
 $access_token = 'k6WZOt6gRL/SN+/8L/3Y2UfQgwd7T9VxIWzl7YsW5CGwMB2OuIczp2zCmVYjmIA5cXxbSz6bL2rDJ2mRnszhJxg0psMNOuZwp200CzoWUhQumTElDznDxAIxoRj6jxf8/CfIoKkkDiAANrI+jRrcbQdB04t89/1O/w1cDnyilFU=';
 $channelSecret = '6c6ca6e38c984ba4b649dc6cf0a3c5fe';
 $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
-
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -5);
 $textmessagerobot = str_replace(" ","",$com);
-
-if (!is_null($events['events'])) {
-  foreach ($events['events'] as $event) {
-    if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
-         $Topic = "NodeMCU1";
-         $lineMsg = '$textmessagerobot';
-         getMqttfromlineMsg($Topic,$lineMsg);
-     }
+$textmessagerobot = str_replace("0","",$textmessagerobot);
+//$tesxt = array(" ");
+//$tesxt1 = array("");
+//list($robotorderinput, $missionanalysis) = explode("เอกสาร", $com);
+//for($i = 0; $i <= 13; $i++){
+//	$missionanalysis = str_replace($tesxt[$i],$tesxt1[$i],$missionanalysis);
+//	}
+	if (!is_null($events['events'])) {
+ 	 foreach ($events['events'] as $event) {
+   	 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
+		 $Topic = "NodeMCU1";
+       		 $lineMsg = "$textmessagerobot";
+         	getMqttfromlineMsg($Topic,$lineMsg);
+	   
+     //    if($robotorderinput == "ส่ง"){
+     //    $Topic = "NodeMCU1";
+     //    $lineMsg = "$missionanalysis";
+     //    getMqttfromlineMsg($Topic,$lineMsg);
+     // }
     }
-   } 
-
+  }
+} 
 function pubMqtt($topic,$msg){
-   $APPID= "samickrock";
+   $APPID= "samickrock/";
    $KEY = "MC6kLl4SYiDW2qd";
    $SECRET = "ASn4eO61s65RPZ3ujHSHNulOz"; 
    $Topic = "$topic"; 
