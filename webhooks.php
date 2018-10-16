@@ -15,7 +15,7 @@ if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
          $Topic = "NodeMCU1";
-         $lineMsg = "$textmessagerobot";
+         $lineMsg = '$textmessagerobot';
          getMqttfromlineMsg($Topic,$lineMsg);
      }
     }
