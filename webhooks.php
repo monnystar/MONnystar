@@ -6,19 +6,39 @@ $channelSecret = '6c6ca6e38c984ba4b649dc6cf0a3c5fe';
 $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
-$com = substr($content, 274, -5);
-$ar_word1 = array("!","@","#","$","%","^","&","(",")","_","+","0","-","=","Q","W","E","R","T","Y","U","I","O","P","{","}","A","S","D","F","G","H","J","K","L",":","'","Z","X","C","V","B","N","M","<",">","?","q","w","e","r","t","y","u","i","o","p","[","]","a","s","d","f","g","h","j","k","l",";","z","x","c","v","b","n","m",",",".","/","|","ๆ","ไ","ำ","พ","ะ","ั","ี","ร","น","ย","บ","ล","ฟ","ห","ก","ด","เ","้","่","า","ส","ว","ง","ผ","ป","แ","อ","ิ","ื","ท","ม","ใ","ฝ","๐","ฎ","ฑ","ธ","ํ","๊","ณ","ฯ","ญ","ฐ","ฤ","ฆ","ฏ","โ","ฌ","็","๋","ษ","ศ","ซ",".","ฉ","ฮ","ฺ","์","?","ฒ","ฬ","ฦ","ๅ","-","ภ","ถ","ุ","ึ","ค","ต","จ","ข","ช","+","๑","๒","๓","๔","ู","฿","๕","๖","๗","๘","๙","๐");
-$ar_word2 = array("");
-$ar_new = str_replace($ar_word1,$ar_word2,$com);
+//$com = substr($content, 274, -5);
+$com = "sfds2254gdfgf553366894244";
+$ar_word1 = array(" ","0","!","@","#","$","%","^","&","(",")","_","+","0","-","=","Q","W","E","R","T","Y","U","I","O","P","{","}","A","S","D","F","G","H","J","K","L",":","'","Z","X","C","V","B","N","M","<",">","?","q","w","e","r","t","y","u","i","o","p","[","]","a","s","d","f","g","h","j","k","l",";","z","x","c","v","b","n","m",",",".","/","|","ๆ","ไ","ำ","พ","ะ","ั","ี","ร","น","ย","บ","ล","ฟ","ห","ก","ด","เ","้","่","า","ส","ว","ง","ผ","ป","แ","อ","ิ","ื","ท","ม","ใ","ฝ","๐","ฎ","ฑ","ธ","ํ","๊","ณ","ฯ","ญ","ฐ","ฤ","ฆ","ฏ","โ","ฌ","็","๋","ษ","ศ","ซ",".","ฉ","ฮ","ฺ","์","?","ฒ","ฬ","ฦ","ๅ","-","ภ","ถ","ุ","ึ","ค","ต","จ","ข","ช","+","๑","๒","๓","๔","ู","฿","๕","๖","๗","๘","๙","๐");
+$ar_word2 = array("0","1","2","3","4","5","6","7","8","9");
+$ar_word3 = array("");
+$ar_new1 = str_replace($ar_word1,$ar_word3,$com);
+$ar_new2 = str_replace($ar_word2,$ar_word3,$com);
+$ar_textnum1 = array("");
+$ar_textnum2 = array("");
+$n = 0;$max = 99;
+for($i = $n;$i < $max;$i++){
+ for($n = $i;$n <= $max;$n++){
+  if($ar_new1[$i] != $ar_new1[$n]){
+     $ar_textnum1[$i] = $ar_new1[$n];
+     $i=$n;
+    }		
+  }
+}
 
-	if (!is_null($events['events'])) {
-	 foreach ($events['events'] as $event) {
-	 	if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
-		 	$Topic = "NodeMCU1";
-			$lineMsg = "$ar_new";
-			getMqttfromlineMsg($Topic,$lineMsg);	   
-		}
-	}
+$ar_textnum2[0] = $ar_new1[0];
+for($i = 0;$i < $max;$i++){
+    $ar_textnum2[$i+1] = $ar_textnum1[$i];
+    //print $ar_textnum1[$i];
+}
+
+if (!is_null($events['events'])) {
+ foreach ($events['events'] as $event) {
+  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
+	$Topic = "NodeMCU1";
+	$lineMsg = "$com"; //implode("",$ar_textnum2);ตัวเลข //$ar_new2; อักษร
+	getMqttfromlineMsg($Topic,$lineMsg);   
+    }
+  }
 } 
 	
 function pubMqtt($topic,$msg){
