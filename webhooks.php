@@ -40,7 +40,7 @@ $newstr = str_replace($at_word1,$ar_word3,$ar_new2,$mcon);
 $test5 = strlen($newstr);
 }
 
-if($test5 <= 6 && $test4 > 1){
+if($test5 <= 3 && $test4 > 1){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
@@ -50,7 +50,7 @@ if($test5 <= 6 && $test4 > 1){
     }
   }
  } 
-}else if($test5 > 6 & $test5 < 12  && $test4 > 1){
+}else if($test5 > 3 & $test5 < 12  && $test4 > 1){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
