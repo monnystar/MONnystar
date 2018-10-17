@@ -6,9 +6,9 @@ $channelSecret = '6c6ca6e38c984ba4b649dc6cf0a3c5fe';
 $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
-$com = substr($content, 274, -5);
-//$com = "ส่งห้อง1-2";
-$at_word5 = array(" ","ส","่","ง","เ","อ","ก","ส","า","ร","ห","้","อ","ง","ท","ี","่","ป","ย","ั","ง");
+//$com = substr($content, 274, -5);
+$com = "ส่งห้อง1-2-3ไม่ได้";
+$at_word0 = array("ส","่","ง","เ","อ","ก","ส","า","ร","ห","้","อ","ง","ท","ี","่","ไป","ยัง","ยง");
 $ar_word1 = array(" ","0","!","@","#","$","%","^","&","(",")","_","+","0","-","=","Q","W","E","R","T","Y","U","I","O","P","{","}","A","S","D","F","G","H","J","K","L",":","'","Z","X","C","V","B","N","M","<",">","?","q","w","e","r","t","y","u","i","o","p","[","]","a","s","d","f","g","h","j","k","l",";","z","x","c","v","b","n","m",",",".","/","|","ๆ","ไ","ำ","พ","ะ","ั","ี","ร","น","ย","บ","ล","ฟ","ห","ก","ด","เ","้","่","า","ส","ว","ง","ผ","ป","แ","อ","ิ","ื","ท","ม","ใ","ฝ","๐","ฎ","ฑ","ธ","ํ","๊","ณ","ฯ","ญ","ฐ","ฤ","ฆ","ฏ","โ","ฌ","็","๋","ษ","ศ","ซ",".","ฉ","ฮ","ฺ","์","?","ฒ","ฬ","ฦ","ๅ","-","ภ","ถ","ุ","ึ","ค","ต","จ","ข","ช","+","๑","๒","๓","๔","ู","฿","๕","๖","๗","๘","๙","๐");
 $ar_word2 = array("0","1","2","3","4","5","6","7","8","9"," ","0","!","@","#","$","%","^","&","(",")","_","+","0","-","=");
 $ar_word3 = array("");
@@ -36,11 +36,21 @@ for($i = 0;$i < $max;$i++){
 $test3 = implode("",$ar_textnum2);
 $test4 = strlen($test3);
 if($test4 > 1){
-$newstr = str_replace($at_word1,$ar_word3,$ar_new2,$mcon);
+$newstr = str_replace($at_word0,$ar_word3,$ar_new2,$mcon);
 $test5 = strlen($newstr);
+print	$test4;
+print	"<br>";
+print	$newstr;
+print	"<br>";
+print	$test5;
+
 }
 
-if($test5 <= 3 && $test4 > 1){
+			 // $Topic = "NodeMCU1";
+		 // $lineMsg = "ok".implode("",$ar_textnum2);
+		// getMqttfromlineMsg($Topic,$lineMsg);
+
+if($test4 > 1 && $test5 <= 6){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
@@ -50,12 +60,12 @@ if($test5 <= 3 && $test4 > 1){
     }
   }
  } 
-}else if($test5 > 3 & $test5 < 12  && $test4 > 1){
+}else if($test4 > 1 && && $test5 > 6 &  $test5 < 15){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 		 $Topic = "NodeMCU1";
-		 $lineMsg = "$ar_new3";
+		 $lineMsg = $test5;
 		getMqttfromlineMsg($Topic,$lineMsg);	   
     }
   }
