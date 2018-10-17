@@ -65,7 +65,7 @@ if($test4 > 1 && $test5 <= 6){
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 		 $Topic = "NodeMCU1";
-		 $lineMsg = $test5;
+		 $lineMsg = "$ar_new3";
 		getMqttfromlineMsg($Topic,$lineMsg);	   
     }
   }
