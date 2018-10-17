@@ -38,19 +38,9 @@ $test4 = strlen($test3);
 if($test4 > 1){
 $newstr = str_replace($at_word1,$ar_word3,$ar_new2,$mcon);
 $test5 = strlen($newstr);
-$test5 = $test5/3;
-print	$test4;
-print	"<br>";
-print	$newstr;
-print	"<br>";
-print	$test5;
-
 }
-			 // $Topic = "NodeMCU1";
-		 // $lineMsg = "ok".implode("",$ar_textnum2);
-		// getMqttfromlineMsg($Topic,$lineMsg);
 
-if($test5 <= 1 && $test4 > 1){
+if($test5 <= 6 && $test4 > 1){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
@@ -60,7 +50,7 @@ if($test5 <= 1 && $test4 > 1){
     }
   }
  } 
-}else if($test5 > 1 & $test5 < 4  && $test4 > 1){
+}else if($test5 > 6 & $test5 < 12  && $test4 > 1){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
