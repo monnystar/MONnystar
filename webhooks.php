@@ -46,17 +46,42 @@ for($i = 0;$i < 20;$i++){
   }
 }
 /////////////////////////////////////////////////
-if($test4 > 1 && $test5 <= 15){
+if($test5 <= 15){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
+	  if($test4 > 1){
 		 $Topic = "NodeMCU1";
 		 $lineMsg = "codeA".$roomnumber;
 		getMqttfromlineMsg($Topic,$lineMsg);	   
+	  }
+	  else if($test4 < 1 ){
+	  if($com == "ใช่" || $com == "ใช"){
+		$Topic = "NodeMCU1";
+		$lineMsg = "codeY";
+		getMqttfromlineMsg($Topic,$lineMsg);	
+	  }
+	  else if($com == "ไม่ใช่" || $com == "ไมใช่"|| $com == "ไม่ใช"){
+		$Topic = "NodeMCU1";
+		$lineMsg = "codeN";
+		getMqttfromlineMsg($Topic,$lineMsg);	
+	  }
+	  else if($com == "กลับ"){
+		$Topic = "NodeMCU1";
+		$lineMsg = "codeB";
+		getMqttfromlineMsg($Topic,$lineMsg);	
+	  }
+	   else if($com == "หยุด"){
+		$Topic = "NodeMCU1";
+		$lineMsg = "codeS";
+		getMqttfromlineMsg($Topic,$lineMsg);	
+	  }
+	 }
     }
   }
  } 
 }
+/////////////////////////////////////////////////////
 
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
