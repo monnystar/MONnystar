@@ -76,6 +76,11 @@ if($test5 <= 15){
 		$lineMsg = "codeS";
 		getMqttfromlineMsg($Topic,$lineMsg);	
 	  }
+	    else if($com == "กดปุ่ม"){
+		$Topic = "NodeMCU1";
+		$lineMsg = "codeP";
+		getMqttfromlineMsg($Topic,$lineMsg);	
+	  }
 	 }
     }
   }
