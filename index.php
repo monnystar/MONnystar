@@ -3,15 +3,15 @@ require "vendor/autoload.php";
 $rock = 500;
 $name = "";
 if($name == "samickrock3"){
-  	$Topic = "NodeMCU1";
-		$lineMsg = " IF Hello LINE BOT";
-		getMqttfromlineMsg($Topic,$lineMsg);	
+  	//$Topic = "NodeMCU1";
+	//	$lineMsg = " IF Hello LINE BOT";
+	//	getMqttfromlineMsg($Topic,$lineMsg);	
    echo " IF Hello LINE BOT";
 }
 else{
-  	$Topic = "NodeMCU1";
-		$lineMsg =  " else Hello LINE BOT";
-		getMqttfromlineMsg($Topic,$lineMsg);	
+  	//$Topic = "NodeMCU1";
+	//	$lineMsg =  " else Hello LINE BOT";
+	//	getMqttfromlineMsg($Topic,$lineMsg);	
 	echo " ELSE Hello LINE BOT";
 }
 echo $name;
