@@ -1,4 +1,7 @@
 <?php
 if(name == samickrock3 && val == 50){
-echo "Hello LINE BOT";
+echo "in IF Hello LINE BOT";
+}
+else{
+echo "in else Hello LINE BOT";
 }
