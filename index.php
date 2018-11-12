@@ -1,7 +1,7 @@
 <?php
 require "vendor/autoload.php";
 
-if(name == samickrock3 && val == 50){
+if($name == "samickrock3" && $val == "50"){
   	$Topic = "NodeMCU1";
 		$lineMsg = "in IF Hello LINE BOT";
 		getMqttfromlineMsg($Topic,$lineMsg);	
