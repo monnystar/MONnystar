@@ -13,6 +13,9 @@ FUNCTION send_file($name) {
   HEADER("Content-Length: ".(string)(FILESIZE($path)));
   HEADER("Content-Disposition: inline; filename=$name");
   HEADER("Content-Transfer-Encoding: binary\n");
+ if($name == "samickrock3"){
+  echo "AAAAAAA";
+ }
   IF ($file = FOPEN($path, 'rb')) {
    WHILE(!FEOF($file) and (CONNECTION_STATUS()==0)) {
      PRINT(FREAD($file, 1024*8));
