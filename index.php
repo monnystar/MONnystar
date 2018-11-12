@@ -1,6 +1,7 @@
 <?php
 require "vendor/autoload.php";
 $rock = 500;
+$name = "";
 if($name == "samickrock3"){
   	$Topic = "NodeMCU1";
 		$lineMsg = " IF Hello LINE BOT";
