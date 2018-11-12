@@ -3,16 +3,15 @@ require "vendor/autoload.php";
 
 if($name == "samickrock3" && $val == "50"){
   	$Topic = "NodeMCU1";
-		$lineMsg = "in IF Hello LINE BOT";
+		$lineMsg = " IF Hello LINE BOT";
 		getMqttfromlineMsg($Topic,$lineMsg);	
-   echo "in IF Hello LINE BOT";
+   echo " IF Hello LINE BOT";
 }
 else{
   	$Topic = "NodeMCU1";
-		$lineMsg =  "in else Hello LINE BOT";
+		$lineMsg =  " else Hello LINE BOT";
 		getMqttfromlineMsg($Topic,$lineMsg);	
-   echo "in IF Hello LINE BOT";
-echo "in else Hello LINE BOT";
+	echo " ELSE Hello LINE BOT";
 }
 
 function pubMqtt($topic,$msg){
