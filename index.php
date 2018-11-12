@@ -14,7 +14,8 @@ else{
 		getMqttfromlineMsg($Topic,$lineMsg);	
 	echo " ELSE Hello LINE BOT";
 }
-
+echo $name;
+/*
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
    $KEY = "MC6kLl4SYiDW2qd";
@@ -50,5 +51,5 @@ function put($url,$tmsg)
     curl_close($ch);
     echo $response . "\r\n";
     return $response;
-}  
+}  */
  ?>
