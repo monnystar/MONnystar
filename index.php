@@ -20,7 +20,7 @@ $i = 0;
 */
   $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
   $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$com");
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$content");
   $response = $bot->pushMessage($idPush, $textMessageBuilder); */
 /*
 if (!is_null($events['events'])) {
