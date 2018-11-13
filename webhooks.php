@@ -9,7 +9,7 @@ $events = json_decode($content, true);
 $com = substr($content, 274, -5);
 
  $Topic = "NodeMCU1";
-		 $lineMsg = "$com";
+		 $lineMsg = $com;
 		getMqttfromlineMsg($Topic,$lineMsg);	
 
 
