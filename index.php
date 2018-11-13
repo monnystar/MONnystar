@@ -14,7 +14,7 @@ $com = substr($content, 274, -5);
 $textmessagerobot = str_replace(" ","",$com);
 $i = 0;
   $Topic = "NodeMCU1";
-  $lineMsg = "fgjf"+"$com";
+  $lineMsg = $com;
    getMqttfromlineMsg($Topic,$lineMsg);
   $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
   $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
