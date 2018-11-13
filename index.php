@@ -1,9 +1,35 @@
 <?php
-   echo "IF Hello LINE BOT";
+require "vendor/autoload.php";
+require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
- $Topic = "NodeMCU1";
-		 $lineMsg = "IF Hello LINE BOT";
-		getMqttfromlineMsg($Topic,$lineMsg);	
+$access_token = '8SbJvTLOsNAtBmcWCPLMLA6bJuFPqOW39YfYDSuwIscDKjGGUt28RzD3RUns/khrcXxbSz6bL2rDJ2mRnszhJxg0psMNOuZwp200CzoWUhT+neIGL5Uqsez+Q4ru666yn+bO0PY363gSh06itF7G9QdB04t89/1O/w1cDnyilFU=';
+$channelSecret = '6f3512faf08bf2a78999ac0a2e34be6d';
+$idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
+
+$content = file_get_contents('php://input');
+$events = json_decode($content, true);
+$linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟปิดไฟ');
+$com = substr($content, 274, -5);
+$textmessagerobot = str_replace(" ","",$com);
+$i = 0;
+  $Topic = "NodeMCU1";
+  $lineMsg = "5555555";
+   getMqttfromlineMsg($Topic,$lineMsg);
+
+if (!is_null($events['events'])) {
+  foreach ($events['events'] as $event) {
+    if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
+      for($i = 0; $i <= 3; $i++){
+      if($textmessagerobot == $linemessage[$i]){
+         $Topic = "NodeMCU1";
+         $lineMsg = "$textmessagerobot";
+         getMqttfromlineMsg($Topic,$lineMsg);
+     }
+    }
+   } 
+  }
+ } 
+
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
    $KEY = "MC6kLl4SYiDW2qd";
@@ -40,4 +66,4 @@ function put($url,$tmsg)
     echo $response . "\r\n";
     return $response;
 }  
-
+ ?>
