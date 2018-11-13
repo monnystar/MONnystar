@@ -13,7 +13,6 @@ else{
 	//	getMqttfromlineMsg($Topic,$lineMsg);	
 	echo " ELSE Hello LINE BOT";
 }
-echo $name;
 /*
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
