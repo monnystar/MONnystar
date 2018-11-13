@@ -23,36 +23,12 @@ $com = substr($content, 274, -55);
   $response = $bot->pushMessage($idPush, $textMessageBuilder); 
 /////////////////////////////////////////////////////////////////////////////////////*/
 
-$linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟปิดไฟ');
-$textmessagerobot = str_replace(" ","",$com);
-$i = 0;
-  $Topic = "NodeMCU1";
+
+$Topic = "NodeMCU1";
   $lineMsg = $com;
    getMqttfromlineMsg($Topic,$lineMsg);
-  $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-  $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$content");
-  $response = $bot->pushMessage($idPush, $textMessageBuilder); 
 
-  $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-  $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$com");
-  $response = $bot->pushMessage($idPush, $textMessageBuilder); 
-/*
-if (!is_null($events['events'])) {
-  foreach ($events['events'] as $event) {
-    if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
-      for($i = 0; $i <= 3; $i++){
-      if($textmessagerobot == $linemessage[$i]){
-         $Topic = "NodeMCU1";
-         $lineMsg = "$textmessagerobot";
-         getMqttfromlineMsg($Topic,$lineMsg);
-     }
-    }
-   } 
-  }
- } 
-*/
+
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
    $KEY = "MC6kLl4SYiDW2qd";
