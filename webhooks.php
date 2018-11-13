@@ -1,20 +1,34 @@
 <?php
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+
 $access_token = '7WrQ+h6+ER6TEeaVvjWCJ1J5HtMI3BkROhFtzYitvdjVvLO+cVn6nVvgEx8Efed+cXxbSz6bL2rDJ2mRnszhJxg0psMNOuZwp200CzoWUhRrm0DLwLuAvnY3jdjc+ao5MZTKNyPriDFKPxcP3028+AdB04t89/1O/w1cDnyilFU=';
 $channelSecret = '6f3512faf08bf2a78999ac0a2e34be6d';
 $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
+
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
+$linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟปิดไฟ');
 $com = substr($content, 274, -5);
+$textmessagerobot = str_replace(" ","",$com);
+$i = 0;
 
- $Topic = "NodeMCU1";
-		 $lineMsg = $com;
-		getMqttfromlineMsg($Topic,$lineMsg);	
-
+if (!is_null($events['events'])) {
+  foreach ($events['events'] as $event) {
+    if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
+      for($i = 0; $i <= 3; $i++){
+      if($textmessagerobot == $linemessage[$i]){
+         $Topic = "NodeMCU1";
+         $lineMsg = "$textmessagerobot";
+         getMqttfromlineMsg($Topic,$lineMsg);
+     }
+    }
+   } 
+  }
+ } 
 
 function pubMqtt($topic,$msg){
-   $APPID= "samickrock/";  //ต้องมี(/)
+   $APPID= "samickrock/";
    $KEY = "MC6kLl4SYiDW2qd";
    $SECRET = "ASn4eO61s65RPZ3ujHSHNulOz"; 
    $Topic = "$topic"; 
