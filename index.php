@@ -13,11 +13,9 @@ $linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟ�
 $com = substr($content, 274, -5);
 $textmessagerobot = str_replace(" ","",$com);
 $i = 0;
-/*
   $Topic = "NodeMCU1";
-  $lineMsg = "sdf"+"$com";
+  $lineMsg = "ยยยยยย"+"$com";
    getMqttfromlineMsg($Topic,$lineMsg);
-*/
   $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
   $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
   $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$content");
