@@ -1,4 +1,5 @@
 <?php
+$com = "AAA";
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
@@ -13,7 +14,7 @@ $com = substr($content, 274, -5);
 $textmessagerobot = str_replace(" ","",$com);
 $i = 0;
   $Topic = "NodeMCU1";
-  $lineMsg = "$content";
+  $lineMsg = "sdfsd"+"$com";
    getMqttfromlineMsg($Topic,$lineMsg);
 
 if (!is_null($events['events'])) {
