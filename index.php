@@ -6,11 +6,24 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = '8SbJvTLOsNAtBmcWCPLMLA6bJuFPqOW39YfYDSuwIscDKjGGUt28RzD3RUns/khrcXxbSz6bL2rDJ2mRnszhJxg0psMNOuZwp200CzoWUhT+neIGL5Uqsez+Q4ru666yn+bO0PY363gSh06itF7G9QdB04t89/1O/w1cDnyilFU=';
 $channelSecret = '6f3512faf08bf2a78999ac0a2e34be6d';
 $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
-
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
-$linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟปิดไฟ');
 $com = substr($content, 274, -55);
+
+/*/////////////////////////////////////////ใช่ในงานทดลอง/////////////////////////////////
+// $access_token   $channelSecret  $idPush ถ้าปรับอย่างใดอย่างหนึ่งต้องตั้งค่าตัวอักษรใหม่ $com = substr($content, 274, -55);
+ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+  $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$content");
+  $response = $bot->pushMessage($idPush, $textMessageBuilder); 
+
+  $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+  $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$com");
+  $response = $bot->pushMessage($idPush, $textMessageBuilder); 
+/////////////////////////////////////////////////////////////////////////////////////*/
+
+$linemessage = array('เปิดไฟ','ปิดไฟ','เปิดไฟปิดไฟ');
 $textmessagerobot = str_replace(" ","",$com);
 $i = 0;
   $Topic = "NodeMCU1";
