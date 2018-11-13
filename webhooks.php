@@ -2,9 +2,9 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
-$access_token = '8SbJvTLOsNAtBmcWCPLMLA6bJuFPqOW39YfYDSuwIscDKjGGUt28RzD3RUns/khrcXxbSz6bL2rDJ2mRnszhJxg0psMNOuZwp200CzoWUhT+neIGL5Uqsez+Q4ru666yn+bO0PY363gSh06itF7G9QdB04t89/1O/w1cDnyilFU=';
-$channelSecret = '6f3512faf08bf2a78999ac0a2e34be6d';
-$idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
+$access_token = 'UidRKf6Z1fdHTrCD6guHC4b7gsB5Yy473jPRAP859lk0hMhkjP43Yo6+iIN8yK3w+DgxGRBmU9Bxox5uQ3cH3+NrLVPTVShQtTCCooYwabHS31e603iOPg7YFhxphDodcjMRt9M6C3PsRgw8cHUuXAdB04t89/1O/w1cDnyilFU=';
+$channelSecret = 'f4ef0d7818426f9dea36a66a70766bb2';
+$idPush = 'U43f202a367910d3b96229105d9ef5d1a';
 
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
