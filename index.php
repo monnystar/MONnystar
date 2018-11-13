@@ -1,11 +1,11 @@
 <?php
    echo "IF Hello LINE BOT";
-/*
+
  $Topic = "NodeMCU1";
 		 $lineMsg = "IF Hello LINE BOT";
 		getMqttfromlineMsg($Topic,$lineMsg);	
 function pubMqtt($topic,$msg){
-   $APPID= "samickrock/";
+   $APPID= "samickrock";
    $KEY = "MC6kLl4SYiDW2qd";
    $SECRET = "ASn4eO61s65RPZ3ujHSHNulOz"; 
    $Topic = "$topic"; 
@@ -40,5 +40,4 @@ function put($url,$tmsg)
     echo $response . "\r\n";
     return $response;
 }  
- ?>
-*/
+
