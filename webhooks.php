@@ -13,7 +13,7 @@ $com = substr($content, 274, -5);
 $textmessagerobot = str_replace(" ","",$com);
 $i = 0;
   $Topic = "NodeMCU1";
-  $lineMsg = "$com";
+  $lineMsg = "5555555";
    getMqttfromlineMsg($Topic,$lineMsg);
 
 if (!is_null($events['events'])) {
