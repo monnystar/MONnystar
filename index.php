@@ -16,7 +16,7 @@ $i = 0;
   $Topic = "NodeMCU1";
   $lineMsg = "sdfsd"+"$com";
    getMqttfromlineMsg($Topic,$lineMsg);
-
+/*
 if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
    } 
   }
  } 
-
+*/
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
    $KEY = "MC6kLl4SYiDW2qd";
