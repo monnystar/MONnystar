@@ -14,7 +14,7 @@ $com = substr($content, 274, -5);
 $textmessagerobot = str_replace(" ","",$com);
 $i = 0;
   $Topic = "NodeMCU1";
-  $lineMsg = "zxvzxv"+"$com";
+  $lineMsg = "zxvzxv"+"$content";
    getMqttfromlineMsg($Topic,$lineMsg);
 /*
 if (!is_null($events['events'])) {
