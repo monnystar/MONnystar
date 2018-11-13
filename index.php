@@ -1,5 +1,6 @@
 <?php
    echo "IF Hello LINE BOT";
+/*
  $Topic = "NodeMCU1";
 		 $lineMsg = "IF Hello LINE BOT";
 		getMqttfromlineMsg($Topic,$lineMsg);	
@@ -40,3 +41,4 @@ function put($url,$tmsg)
     return $response;
 }  
  ?>
+*/
