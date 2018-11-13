@@ -20,6 +20,11 @@ $i = 0;
   $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
   $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$content");
   $response = $bot->pushMessage($idPush, $textMessageBuilder); 
+
+  $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+  $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$com");
+  $response = $bot->pushMessage($idPush, $textMessageBuilder); 
 /*
 if (!is_null($events['events'])) {
   foreach ($events['events'] as $event) {
