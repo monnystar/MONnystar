@@ -51,4 +51,3 @@ function put($url,$tmsg)
     echo $response . "\r\n";
     return $response;
 }  */
- ?>
