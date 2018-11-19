@@ -1,5 +1,4 @@
 <?php
-$com = "AAA";
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = '8SbJvTLOsNAtBmcWCPLMLA6bJuFPqOW39YfYDSuwIscDKjGGUt28RzD3RUns/khrcXxbSz6bL2rDJ2mRnszhJxg0psMNOuZwp200CzoWUhT+neIGL5Uqsez+Q4ru666yn+bO0PY363gSh06itF7G9QdB04t89/1O/w1cDnyilFU=';
@@ -22,7 +21,6 @@ $com = substr($content, 274, -55);
   $response = $bot->pushMessage($idPush, $textMessageBuilder); 
 /////////////////////////////////////////////////////////////////////////////////////*/
 
-
 $at_word0 = array("ส","่","ง","เ","อ","ก","ส","า","ร","ห","้","อ","ง","ท","ี","่","ไป","ยัง","ยง");
 $ar_word1 = array(" ","0","!","@","#","$","%","^","&","(",")","_","+","0","-","=","Q","W","E","R","T","Y","U","I","O","P","{","}","A","S","D","F","G","H","J","K","L",":","'","Z","X","C","V","B","N","M","<",">","?","q","w","e","r","t","y","u","i","o","p","[","]","a","s","d","f","g","h","j","k","l",";","z","x","c","v","b","n","m",",",".","/","|","ๆ","ไ","ำ","พ","ะ","ั","ี","ร","น","ย","บ","ล","ฟ","ห","ก","ด","เ","้","่","า","ส","ว","ง","ผ","ป","แ","อ","ิ","ื","ท","ม","ใ","ฝ","๐","ฎ","ฑ","ธ","ํ","๊","ณ","ฯ","ญ","ฐ","ฤ","ฆ","ฏ","โ","ฌ","็","๋","ษ","ศ","ซ",".","ฉ","ฮ","ฺ","์","?","ฒ","ฬ","ฦ","ๅ","-","ภ","ถ","ุ","ึ","ค","ต","จ","ข","ช","+","๑","๒","๓","๔","ู","฿","๕","๖","๗","๘","๙","๐");
 $ar_word2 = array("0","1","2","3","4","5","6","7","8","9"," ","0","!","@","#","$","%","^","&","(",")","_","+","0","-","=");
@@ -41,6 +39,7 @@ for($i = $n;$i < $max;$i++){
 		}		
 	}
 }
+
 $ar_textnum2[0] = $ar_new1[0];
 for($i = 0;$i < $max;$i++){
 	$ar_textnum2[$i+1] = $ar_textnum1[$i];	
@@ -49,8 +48,8 @@ for($i = 0;$i < $max;$i++){
 $test3 = implode("",$ar_textnum2);
 $test4 = strlen($test3);
 if($test4 > 1){
-$newstr = str_replace($at_word0,$ar_word3,$ar_new2,$mcon);
-$test5 = strlen($newstr);
+	$newstr = str_replace($at_word0,$ar_word3,$ar_new2,$mcon);
+	$test5 = strlen($newstr);
 }
 //////////////////////////////////////////////////
 $roomnumber = implode("-",$ar_textnum2);
@@ -68,7 +67,8 @@ if($test5 <= 15){
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 	  if($test4 > 1){
 		 $Topic = "NodeMCU1";
-		 $lineMsg = "codeA".$roomnumber;
+		 //$lineMsg = "codeA".$roomnumber;
+		  $lineMsg = "codeA";
 		getMqttfromlineMsg($Topic,$lineMsg);	   
 	  }
 	  else if($test4 < 1 ){
