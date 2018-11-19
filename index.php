@@ -67,8 +67,7 @@ if($test5 <= 15){
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {  
 	  if($test4 > 1){
 		 $Topic = "NodeMCU1";
-		 //$lineMsg = "codeA".$roomnumber;
-		  $lineMsg = "codeA";
+		 $lineMsg = "codeA".$roomnumber;
 		getMqttfromlineMsg($Topic,$lineMsg);	   
 	  }
 	  else if($test4 < 1 ){
