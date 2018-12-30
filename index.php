@@ -81,14 +81,14 @@ if($test5 <= 15){
 		$lineMsg = "codeN";
 		getMqttfromlineMsg($Topic,$lineMsg);	
 	  }
-	  else if($com == "กลับ"){
+	  else if($com == "หลัง"){
 		$Topic = "NodeMCU1";
 		$lineMsg = "codeB";
 		getMqttfromlineMsg($Topic,$lineMsg);	
 	  }
-	   else if($com == "หยุด"){
+	   else if($com == "หน้า"){
 		$Topic = "NodeMCU1";
-		$lineMsg = "codeS";
+		$lineMsg = "codeF";
 		getMqttfromlineMsg($Topic,$lineMsg);	
 	  }
 	    else if($com == "กดปุ่ม"){
