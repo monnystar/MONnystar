@@ -110,7 +110,7 @@ if($test5 <= 15){
 				$lineMsg = "codeP";
 				getMqttfromlineMsg($Topic,$lineMsg);	
 			  }
-	 }
+	 
 	}
       }
     }
