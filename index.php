@@ -76,7 +76,7 @@ if($test5 <= 15){
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 		date_default_timezone_set("Asia/Bangkok");
  		if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){
-			notify_message("เวลา 16.30 มโนยกเลิกการทำงาน",$token);		
+			notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งาน 8.30น.",$token);		
  		}
 		 else {
 			 if($test4 > 1){
