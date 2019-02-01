@@ -73,54 +73,54 @@ for($i = 0;$i < 20;$i++){
 if($test5 <= 15){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
-	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-		date_default_timezone_set("Asia/Bangkok");
- 		if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){		
-			notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งานอีกครั้ง 8.30น.",$token);		
- 		}
-		 else {
-			 if($test4 > 1){
-				 for($i = 0;$i <= 5;$i++){
-					if($roomnumber[$i] >= 5){
-					notify_message("หม้ายเลขห้องผิดพลาดกรุณาส่งคำสั่งมาใหม่\nหม้ายเลขห้องคือ 1 2 3 4",$token);
-					}else{						
-					$Topic = "NodeMCU1";
-					 $lineMsg = "codeA".$roomnumber;
-					getMqttfromlineMsg($Topic,$lineMsg);	   
-					}
-				}
-			  }
-			  else if($test4 < 1 ){
-			  if($com == "ใช่" || $com == "ใช"){
+	  if ($event['type'] == 'message' && $event['message']['type'] == 'text'){		
+		 if($test4 > 1){
+			date_default_timezone_set("Asia/Bangkok");
+ 			if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){		
+				notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งานอีกครั้ง 8.30น.",$token);		
+ 			} else {
+				for($i = 0;$i <= 5;$i++){
+				if($roomnumber[$i] >= 5){
+				notify_message("หม้ายเลขห้องผิดพลาดกรุณาส่งคำสั่งมาใหม่\nหม้ายเลขห้องคือ 1 2 3 4",$token);
+				}else{						
 				$Topic = "NodeMCU1";
-				$lineMsg = "codeY";
-				getMqttfromlineMsg($Topic,$lineMsg);	
+				$lineMsg = "codeA".$roomnumber;
+				getMqttfromlineMsg($Topic,$lineMsg);	   
 			  }
-			  else if($com == "ไม่ใช่"){
-				$Topic = "NodeMCU1";
-				$lineMsg = "codeN";
-				getMqttfromlineMsg($Topic,$lineMsg);	
-			  }
-			  else if($com == "หลัง"){
-				$Topic = "NodeMCU1";
-				$lineMsg = "codeB";
-				getMqttfromlineMsg($Topic,$lineMsg);	
-			  }
-			   else if($com == "หน้า"){
-				$Topic = "NodeMCU1";
-				$lineMsg = "codeF";
-				getMqttfromlineMsg($Topic,$lineMsg);	
-			  }
-			    else if($com == "กดปุ่ม"){
-				$Topic = "NodeMCU1";
-				$lineMsg = "codeP";
-				getMqttfromlineMsg($Topic,$lineMsg);	
+		        }
+		      }
+		    }
+		else if($test4 < 1 ){
+		  if($com == "ใช่" || $com == "ใช"){
+			$Topic = "NodeMCU1";
+			$lineMsg = "codeY";
+			getMqttfromlineMsg($Topic,$lineMsg);	
+		  }
+		else if($com == "ไม่ใช่"){
+			$Topic = "NodeMCU1";
+			$lineMsg = "codeN";
+			getMqttfromlineMsg($Topic,$lineMsg);	
+		 }
+		else if($com == "หลัง"){
+			$Topic = "NodeMCU1";
+			$lineMsg = "codeB";
+			getMqttfromlineMsg($Topic,$lineMsg);	
+		 }
+		else if($com == "หน้า"){
+			$Topic = "NodeMCU1";
+			$lineMsg = "codeF";
+			getMqttfromlineMsg($Topic,$lineMsg);	
+		 }
+		else if($com == "กดปุ่ม"){
+			$Topic = "NodeMCU1";
+			$lineMsg = "codeP";
+			getMqttfromlineMsg($Topic,$lineMsg);	
 			  }}
 	}
       }
     }
   } 
-}
+
 /////////////////////////////////////////////////////
 function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
