@@ -69,6 +69,13 @@ for($i = 0;$i < 20;$i++){
      $roomnumber[$i] = " ";
   }
 }
+
+
+for($i = 0;$i <= 5;$i++){
+	if($roomnumber[$i] >= 5){
+		notify_message("หม้ายเลขห้องผิดพลาด กรุณาส่งคำสั่งมาใหม่\nหม้ายเลขห้องคือ 1 2 3 4");
+	}
+}
 /////////////////////////////////////////////////
 if($test5 <= 15){
 	if (!is_null($events['events'])) {
@@ -76,6 +83,7 @@ if($test5 <= 15){
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 		date_default_timezone_set("Asia/Bangkok");
  		if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){
+		
 			notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งานอีกครั้ง 8.30น.",$token);		
  		}
 		 else {
