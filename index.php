@@ -1,12 +1,18 @@
 <?php
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+define('LINE_API',"https://notify-api.line.me/api/notify"); 
+$token = "4RzGK44men5r8R1OiA0TPT3jmI2VO71YcSyvXtKnGCm";    //Line notify
 $access_token = '8SbJvTLOsNAtBmcWCPLMLA6bJuFPqOW39YfYDSuwIscDKjGGUt28RzD3RUns/khrcXxbSz6bL2rDJ2mRnszhJxg0psMNOuZwp200CzoWUhT+neIGL5Uqsez+Q4ru666yn+bO0PY363gSh06itF7G9QdB04t89/1O/w1cDnyilFU=';
 $channelSecret = '6f3512faf08bf2a78999ac0a2e34be6d';
 $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -55);
+
+//////////////////////////////ข้อความ Line Notify////////////////////////////////////////
+///notify_message("ทดสอบ",$token);
+////////////////////////////////////////////////////////////////////////////////////////
 
 /*/////////////////////////////////////////ใช่ในงานทดลอง/////////////////////////////////
 // $access_token   $channelSecret  $idPush ถ้าปรับอย่างใดอย่างหนึ่งต้องตั้งค่าตัวอักษรใหม่ $com = substr($content, 274, -55);
@@ -138,4 +144,21 @@ function put($url,$tmsg)
     echo $response . "\r\n";
     return $response;
 }  
+function notify_message($message,$token){
+ $queryData = array('message' => $message);
+ $queryData = http_build_query($queryData,'','&');
+ $headerOptions = array( 
+         'http'=>array(
+            'method'=>'POST',
+            'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
+                      ."Authorization: Bearer ".$token."\r\n"
+                      ."Content-Length: ".strlen($queryData)."\r\n",
+            'content' => $queryData
+         ),
+ );
+ $context = stream_context_create($headerOptions);
+ $result = file_get_contents(LINE_API,FALSE,$context);
+ $res = json_decode($result);
+ return $res;
+}
  ?>
