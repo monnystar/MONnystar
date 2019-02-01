@@ -74,11 +74,11 @@ if($test5 <= 15){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-		date_default_timezone_set("Asia/Bangkok");
- 		if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){		
-			notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งานอีกครั้ง 8.30น.",$token);		
- 		}
-		 else {
+	//	date_default_timezone_set("Asia/Bangkok");
+ 	//	if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){		
+	//		notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งานอีกครั้ง 8.30น.",$token);		
+ 	//	}
+	//	 else {
 			 if($test4 > 1){
 				 for($i = 0;$i <= 5;$i++){
 					if($roomnumber[$i] >= 5){
@@ -116,7 +116,7 @@ if($test5 <= 15){
 				$lineMsg = "codeP";
 				getMqttfromlineMsg($Topic,$lineMsg);	
 			  }}
-	}
+//	}
       }
     }
   } 
