@@ -12,23 +12,7 @@ $com = substr($content, 274, -55);
 
 //////////////////////////////ข้อความ Line Notify////////////////////////////////////////
 notify_message("ทดสอบ",$token);
-function notify_message($message,$token){
- $queryData = array('message' => $message);
- $queryData = http_build_query($queryData,'','&');
- $headerOptions = array( 
-         'http'=>array(
-            'method'=>'POST',
-            'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
-                      ."Authorization: Bearer ".$token."\r\n"
-                      ."Content-Length: ".strlen($queryData)."\r\n",
-            'content' => $queryData
-         ),
- );
- $context = stream_context_create($headerOptions);
- $result = file_get_contents(LINE_API,FALSE,$context);
- $res = json_decode($result);
- return $res;
-}
+
 ////////////////////////////////////////////////////////////////////////////////////////
 
 /*/////////////////////////////////////////ใช่ในงานทดลอง/////////////////////////////////
@@ -95,11 +79,12 @@ if($test5 <= 15){
 		  notify_message("เวลา 16.30 มโนยกเลิกการทำงาน",$token);
  		if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){
 			notify_message("เวลา 16.30 มโนยกเลิกการทำงาน",$token);
+		
+ 		}
+		 else {
 			$Topic = "NodeMCU1";
 			$lineMsg = "เวลาเกิน";
 			getMqttfromlineMsg($Topic,$lineMsg);
- 		}
-		 else {
 			  if($test4 > 1){
 				 $Topic = "NodeMCU1";
 				 $lineMsg = "codeA".$roomnumber;
@@ -173,5 +158,21 @@ function put($url,$tmsg)
     echo $response . "\r\n";
     return $response;
 }  
-
+function notify_message($message,$token){
+ $queryData = array('message' => $message);
+ $queryData = http_build_query($queryData,'','&');
+ $headerOptions = array( 
+         'http'=>array(
+            'method'=>'POST',
+            'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
+                      ."Authorization: Bearer ".$token."\r\n"
+                      ."Content-Length: ".strlen($queryData)."\r\n",
+            'content' => $queryData
+         ),
+ );
+ $context = stream_context_create($headerOptions);
+ $result = file_get_contents(LINE_API,FALSE,$context);
+ $res = json_decode($result);
+ return $res;
+}
  ?>
