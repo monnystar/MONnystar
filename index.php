@@ -85,6 +85,7 @@ if($test5 <= 15){
 			$Topic = "NodeMCU1";
 			$lineMsg = "เวลาเกิน";
 			getMqttfromlineMsg($Topic,$lineMsg);
+			 /*
 			  if($test4 > 1){
 				 $Topic = "NodeMCU1";
 				 $lineMsg = "codeA".$roomnumber;
@@ -115,7 +116,7 @@ if($test5 <= 15){
 				$Topic = "NodeMCU1";
 				$lineMsg = "codeP";
 				getMqttfromlineMsg($Topic,$lineMsg);	
-			  }}
+			  }}*/
 	}
       }
     }
