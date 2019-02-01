@@ -78,6 +78,9 @@ if($test5 <= 15){
 		  notify_message("เวลา 16.30 มโนยกเลิกการทำงาน",$token);
  		if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){
 			notify_message("เวลา 16.30 มโนยกเลิกการทำงาน",$token);
+			$Topic = "NodeMCU1";
+			$lineMsg = "เวลาเกิน";
+			getMqttfromlineMsg($Topic,$lineMsg);
  		}
 		 else {
 			  if($test4 > 1){
