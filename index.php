@@ -11,7 +11,7 @@ $events = json_decode($content, true);
 $com = substr($content, 274, -55);
 
 //////////////////////////////ข้อความ Line Notify////////////////////////////////////////
-///notify_message("ทดสอบ",$token);
+notify_message("ทดสอบ",$token);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 /*/////////////////////////////////////////ใช่ในงานทดลอง/////////////////////////////////
@@ -76,11 +76,10 @@ if($test5 <= 15){
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 		date_default_timezone_set("Asia/Bangkok");
 		  notify_message("เวลา 16.30 มโนยกเลิกการทำงาน",$token);
- 		//if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){
-		//	notify_message("เวลา 16.30 มโนยกเลิกการทำงาน",$token);
- 		//}
-		//  else {	
-		//	  notify_message("ทำงาน",$token);
+ 		if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){
+			notify_message("เวลา 16.30 มโนยกเลิกการทำงาน",$token);
+ 		}
+		 else {
 			  if($test4 > 1){
 				 $Topic = "NodeMCU1";
 				 $lineMsg = "codeA".$roomnumber;
@@ -112,7 +111,7 @@ if($test5 <= 15){
 				$lineMsg = "codeP";
 				getMqttfromlineMsg($Topic,$lineMsg);	
 			  }}
-//	}
+	}
       }
     }
   } 
