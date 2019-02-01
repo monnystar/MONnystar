@@ -82,7 +82,7 @@ if($test5 <= 15){
 		$lineMsg = "codeY";
 		getMqttfromlineMsg($Topic,$lineMsg);	
 	  }
-	  else if($com == "ไม่ใช่" || $com == "ไมใช่"|| $com == "ไม่ใช"|| $com == "ไม่ใช้"|| $com == "ไช้ใช้"|| $com == "ไช้ใช"){
+	  else if($com == "ไม่ใช่"){
 		$Topic = "NodeMCU1";
 		$lineMsg = "codeN";
 		getMqttfromlineMsg($Topic,$lineMsg);	
