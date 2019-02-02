@@ -88,7 +88,7 @@ if($test5 <= 15){
 				getMqttfromlineMsg($Topic,$lineMsg);	   
 		//	  }
 		//        }
-		      }
+		 //     }
 		    }
 		else if($test4 < 1 ){
 		  if($com == "ใช่" || $com == "ใช"){
