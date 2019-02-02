@@ -77,7 +77,7 @@ if($test5 <= 15){
 		 if($test4 > 1){
 			date_default_timezone_set("Asia/Bangkok");
  			if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){		
-				//notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งานอีกครั้ง 8.30น.",$token);		
+				notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งานอีกครั้ง 8.30น.",$token);		
  			} else {
 				for($i = 0;$i <= 5;$i++){
 				if($roomnumber[$i] >= 5){
