@@ -88,7 +88,9 @@ if($test5 <= 9){
 		//		}else{						
 				$Topic = "NodeMCU1";
 				$lineMsg = "codeA".$roomnumber;
-				getMqttfromlineMsg($Topic,$lineMsg);	   
+				getMqttfromlineMsg($Topic,$lineMsg);
+				
+			 
 		//	  }
 		//        }
 		 //     }
@@ -161,6 +163,9 @@ function put($url,$tmsg)
     echo $response . "\r\n";
     return $response;
 }  
+
+notify_message($test5);
+
 function notify_message($message,$token){
  $queryData = array('message' => $message);
  $queryData = http_build_query($queryData,'','&');
