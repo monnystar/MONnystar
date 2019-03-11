@@ -2,7 +2,7 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 define('LINE_API',"https://notify-api.line.me/api/notify"); 
-$token = "4RzGK44men5r8R1OiA0TPT3jmI2VO71YcSyvXtKnGCm";    //Line notify
+$token = "JbgK8y3vRxZfbW0byyaoL0Ba7QZ13LTYGjABbkRAGa6";    //Line notify
 $access_token = '8SbJvTLOsNAtBmcWCPLMLA6bJuFPqOW39YfYDSuwIscDKjGGUt28RzD3RUns/khrcXxbSz6bL2rDJ2mRnszhJxg0psMNOuZwp200CzoWUhT+neIGL5Uqsez+Q4ru666yn+bO0PY363gSh06itF7G9QdB04t89/1O/w1cDnyilFU=';
 $channelSecret = '6f3512faf08bf2a78999ac0a2e34be6d';
 $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
@@ -70,6 +70,9 @@ for($i = 0;$i < 20;$i++){
   }
 }
 /////////////////////////////////////////////////
+
+notify_message($test5);
+
 if($test5 <= 9){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
