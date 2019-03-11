@@ -70,7 +70,7 @@ for($i = 0;$i < 20;$i++){
   }
 }
 /////////////////////////////////////////////////
-if($test5 <= 15){
+if($test5 <= 9){
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text'){		
