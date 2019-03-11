@@ -71,7 +71,7 @@ for($i = 0;$i < 20;$i++){
 }
 /////////////////////////////////////////////////
 
-notify_message($test5);
+//notify_message($test5);
 
 if($test5 <= 9){
 	if (!is_null($events['events'])) {
