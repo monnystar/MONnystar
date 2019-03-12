@@ -88,13 +88,12 @@ if($test5 <= 9){
 			}else{						
 				$Topic = "NodeMCU1";
 				$lineMsg = "codeA".$roomnumber;
-				getMqttfromlineMsg($Topic,$lineMsg);
-				
+				getMqttfromlineMsg($Topic,$lineMsg);				
 			 
 			  }
 		       }
 		    }
-		    }
+		  }
 		else if($test4 < 1 ){
 		  if($com == "ใช่" || $com == "ใช"){
 			$Topic = "NodeMCU1";
