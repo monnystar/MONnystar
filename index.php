@@ -115,6 +115,11 @@ if($test5 <= 9){
 			$lineMsg = "codeF";
 			getMqttfromlineMsg($Topic,$lineMsg);	
 		 }
+		else if($com == "หยุด"){
+			$Topic = "NodeMCU1";
+			$lineMsg = "codeSP";
+			getMqttfromlineMsg($Topic,$lineMsg);	
+		 }
 		else if($com == "กดปุ่ม"){
 			$Topic = "NodeMCU1";
 			$lineMsg = "codeP";
