@@ -92,7 +92,7 @@ if($test5 <= 9){
 			 
 			//  }
 		   //    }
-		    }
+		    //}
 		  }
 		else if($test4 < 1 ){
 		  if($com == "ใช่" || $com == "ใช"){
@@ -119,7 +119,8 @@ if($test5 <= 9){
 			$Topic = "NodeMCU1";
 			$lineMsg = "codeP";
 			getMqttfromlineMsg($Topic,$lineMsg);	
-			  }}
+		 }
+		}
 	}
       }
     }
