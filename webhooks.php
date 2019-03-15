@@ -43,23 +43,21 @@ for($i = 0;$i < 20;$i++){
   }
 }
 
-$h1 = (($w1*$roomnumber)+( $w3*$newstr)) /100  ;
+$h1 = ((0.1*$roomnumber)+( 0.3*$newstr)) /100  ;
 $h1 =$exp((double) -$h1);
 $h1 = 1 / (1 + $h1);
-$h2 = (($w2*$roomnumber)+( $w4*$newstr)) /100;
+$h2 = ((0.2*$roomnumber)+( 0.4*$newstr)) /100;
 $h2 = $exp((double) -$h2);
 $h2 = 1 / (1 +$ h2);
 $h=$h1+$h2;
-
-$y1 = (($w5*$h1)+( $w7*$h2));
-$y2 = (($w6*$h1)+( $w8*$h2));
-$y=$y1+$y2;
+$y1 = ((0.5*$h1)+( 0.7*$h2));
+$y2 = ((0.6*$h1)+( 0.8*$h2));
 $e1 = 0.5*$pow((0-$y1),2);
 $e2 = 0.5*$pow((1-$y2),2);
 $eet = e1+e2;
 
 //notify_message($test5);
-if($eet <= 9){
+if($eet <= 50{
 	if (!is_null($events['events'])) {
 	 foreach ($events['events'] as $event) {
 	  if ($event['type'] == 'message' && $event['message']['type'] == 'text'){		
