@@ -88,7 +88,11 @@ if($test5 <= 9){
 			}else{						
 				$Topic = "NodeMCU1";
 				$lineMsg = "codeA".$roomnumber;
-				getMqttfromlineMsg($Topic,$lineMsg);				
+				getMqttfromlineMsg($Topic,$lineMsg);		
+				
+				$Topic = "NodeMCU1";
+				$lineMsg = ".";
+				getMqttfromlineMsg($Topic,$lineMsg);	
 			 
 			  }
 		       }
