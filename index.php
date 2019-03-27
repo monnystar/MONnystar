@@ -187,7 +187,7 @@ function notify_message($message,$token){
  return $res;
 }
 
-$Topic = "NodeMCU1";
-$lineMsg = "";
-getMqttfromlineMsg($Topic,$lineMsg);	
+//$Topic = "NodeMCU1";
+//$lineMsg = "";
+//getMqttfromlineMsg($Topic,$lineMsg);	
  ?>
