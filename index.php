@@ -82,18 +82,15 @@ if($test5 <= 9){
  			//if(date("H:i") >= "16:30" || date("H:i") <= "8:30"){		
 			//notify_message("เวลา 16.30น. มโนยกเลิกการทำงาน\nและเปิดใช้งานอีกครั้ง 8.30น.",$token);		
  			//} else {
-				for($i = 0;$i <= 5;$i++){
+			for($i = 0;$i <= 5;$i++){
 			if($roomnumber[$i] >= 5){
 			notify_message("หม้ายเลขห้องผิดพลาดกรุณาส่งคำสั่งมาใหม่\nหม้ายเลขห้องคือ 1 2 3 4",$token);
 			}else{						
 				$Topic = "NodeMCU1";
 				$lineMsg = "codeA".$roomnumber;
-				getMqttfromlineMsg($Topic,$lineMsg);		
-				
-				$Topic = "NodeMCU1";
-				$lineMsg = ".";
 				getMqttfromlineMsg($Topic,$lineMsg);	
-			 
+				&i=10;
+				 
 			  }
 		       }
 		    //}
@@ -191,7 +188,4 @@ function notify_message($message,$token){
  return $res;
 }
 
-//$Topic = "NodeMCU1";
-//$lineMsg = "";
-//getMqttfromlineMsg($Topic,$lineMsg);	
  ?>
