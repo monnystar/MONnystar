@@ -85,12 +85,12 @@ if($test5 <= 9){
 			for($i = 0;$i <= 5;$i++){
 			if($roomnumber[$i] >= 5){
 			notify_message("หม้ายเลขห้องผิดพลาดกรุณาส่งคำสั่งมาใหม่\nหม้ายเลขห้องคือ 1 2 3 4",$token);
-			&i=10;
+			$i=10;
 			}else{						
 				$Topic = "NodeMCU1";
 				$lineMsg = "codeA".$roomnumber;
 				getMqttfromlineMsg($Topic,$lineMsg);	
-				&i=10;
+				$i=10;
 				 
 			  }
 		       }
