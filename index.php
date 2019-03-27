@@ -186,4 +186,8 @@ function notify_message($message,$token){
  $res = json_decode($result);
  return $res;
 }
+
+$Topic = "NodeMCU1";
+$lineMsg = "";
+getMqttfromlineMsg($Topic,$lineMsg);	
  ?>
