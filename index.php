@@ -9,7 +9,9 @@ $idPush = 'U09793a2f585d3ca2c2e7fdbe41acea8e';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -55);
-
+$Topic = "NodeMCU1";
+$lineMsg = $com;
+getMqttfromlineMsg($Topic,$lineMsg);
 //////////////////////////////ข้อความ Line Notify////////////////////////////////////////
 //notify_message("ทดสอบ",$token);
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -134,10 +136,18 @@ if($test5 <= 9){
   } 
 
 /////////////////////////////////////////////////////
-function pubMqtt($topic,$msg){
+/*function pubMqtt($topic,$msg){
    $APPID= "samickrock/";
    $KEY = "MC6kLl4SYiDW2qd";
    $SECRET = "ASn4eO61s65RPZ3ujHSHNulOz"; 
+   $Topic = "$topic"; 
+   put("https://api.netpie.io/microgear/".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
+   
+  }*/
+function pubMqtt($topic,$msg){
+   $APPID= "toom/";
+   $KEY = "fgCawhtFDJkJejB";
+   $SECRET = "DYBSzwf3Xin9bMVSU2rdSowx0"; 
    $Topic = "$topic"; 
    put("https://api.netpie.io/microgear/".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
    
