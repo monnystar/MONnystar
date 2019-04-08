@@ -145,7 +145,7 @@ if($test5 <= 9){
    
   }*/
 function pubMqtt($topic,$msg){
-   $APPID= "toom/";
+   $APPID= "toom";
    $KEY = "fgCawhtFDJkJejB";
    $SECRET = "DYBSzwf3Xin9bMVSU2rdSowx0"; 
    $Topic = "$topic"; 
